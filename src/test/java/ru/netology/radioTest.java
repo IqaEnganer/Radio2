@@ -3,7 +3,7 @@ package ru.netology;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
-
+//Comments
 class radioTest {
     // Test stations
     // Switching by buttons
