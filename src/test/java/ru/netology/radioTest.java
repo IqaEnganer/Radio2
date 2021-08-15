@@ -31,6 +31,24 @@ class RadioTest {
         int actual = rad.getCurrentStation();
         assertEquals(expected,actual);
     }
+    @Test
+    public void setCurrentStationTwo(){
+        Radio rad = new Radio();
+        rad.setMaxStation();
+        rad.setCurrentStation(10);
+        int expected = 9;
+        int actual = rad.getCurrentStation();
+        assertEquals(expected,actual);
+    }
+    @Test
+    public void setCurrentStationThree(){
+        Radio rad = new Radio();
+        rad.setMinStation();
+        rad.setCurrentStation(-1);
+        int expected = 0;
+        int actual = rad.getCurrentStation();
+        assertEquals(expected,actual);
+    }
 
 
     //Next , Back station .
@@ -45,8 +63,9 @@ class RadioTest {
     @Test
     public void setNextStationTwo (){
         Radio rad = new Radio();
+        rad.setMaxStation();
         rad.setNextStation();
-        int expected = rad.getCurrentStation();
+        int expected = 0;
         int actual = rad.getCurrentStation();
         assertEquals(expected,actual);
     }
@@ -61,8 +80,9 @@ class RadioTest {
     @Test
     public void setBackStationTwo (){
         Radio rad = new Radio();
+        rad.setMaxStation();
         rad.setBackStation();
-        int expected = rad.getCurrentStation();
+        int expected = 8;
         int actual = rad.getCurrentStation();
         assertEquals(expected, actual);
     }

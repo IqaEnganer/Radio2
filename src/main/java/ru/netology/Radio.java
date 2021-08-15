@@ -31,15 +31,15 @@ public class Radio {
         if (currentStation > maxStation){
             currentStation = minStation;
         }
-        this.currentStation = currentStation;
+        return;
     }
 
     public void setBackStation(){
         currentStation = currentStation - 1;
-        if (currentStation <= minStation){
+        if (currentStation < minStation){
             currentStation = maxStation;
         }
-         this.currentStation=currentStation;
+         return;
     }
 
     public void setCurrentStation(int currentStation) {
