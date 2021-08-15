@@ -72,12 +72,12 @@ public class Radio {
         }
         return;
     }
-    public void setDecreaseVolume(int currentVolume) {
+    public void setDecreaseVolume() {
         currentVolume = currentVolume-1;
         if (currentVolume < minVolume) {
             currentVolume = minVolume;
         }
-        this.currentVolume = currentVolume ;
+        return;
     }
 
 }
