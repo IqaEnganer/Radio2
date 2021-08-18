@@ -10,9 +10,8 @@ public class Radio {
     private int currentVolume;
 
 
-
     //Radio Management
-    public void setMaxStation(){
+    public void setMaxStation() {
         this.currentStation = maxStation;
         return;
     }
@@ -26,20 +25,20 @@ public class Radio {
         return this.currentStation;
     }
 
-    public void setNextStation(){
+    public void setNextStation() {
         currentStation = currentStation + 1;
-        if (currentStation > maxStation){
+        if (currentStation > maxStation) {
             currentStation = minStation;
         }
         return;
     }
 
-    public void setBackStation(){
+    public void setBackStation() {
         currentStation = currentStation - 1;
-        if (currentStation < minStation){
+        if (currentStation < minStation) {
             currentStation = maxStation;
         }
-         return;
+        return;
     }
 
     public void setCurrentStation(int currentStation) {
@@ -54,26 +53,30 @@ public class Radio {
 
 
     // Velum level management
-    public int getCurrentVolume(){
+    public int getCurrentVolume() {
         return currentVolume;
     }
-    public void setMaxVolume(){
+
+    public void setMaxVolume() {
         this.currentVolume = maxVolume;
         return;
     }
+
     public void setMinVolume() {
         this.currentVolume = minVolume;
         return;
     }
+
     public void setIncreaseVolume() {
         currentVolume = currentVolume + 1;
         if (currentVolume > maxVolume) {
-             currentVolume = maxVolume;
+            currentVolume = maxVolume;
         }
         return;
     }
+
     public void setDecreaseVolume() {
-        currentVolume = currentVolume-1;
+        currentVolume = currentVolume - 1;
         if (currentVolume < minVolume) {
             currentVolume = minVolume;
         }
