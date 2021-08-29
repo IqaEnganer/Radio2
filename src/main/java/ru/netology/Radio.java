@@ -1,16 +1,78 @@
 package ru.netology;
 
 public class Radio {
-    private int currentStation;
+    private boolean on = false;
+    private String radioName = "NotName";
+    private int id;
     private int minStation = 0;
     private int maxStation = 9;
+    private int currentStation = (minStation + maxStation) / 2;
 
     private int minVolume = 0;
-    private int maxVolume = 10;
-    private int currentVolume;
+    private int maxVolume = 100;
+    private int currentVolume = 10;
 
+
+    public Radio(boolean on, int id) {
+        this.on = on;
+        this.id = id;
+    }
+
+    public Radio(String radioName, boolean on, int id) {
+        this.radioName = radioName;
+        this.on = on;
+        this.id = id;
+    }
+
+
+    public Radio(int id, String radioName, int minStation, int maxStation, int currentStation, int minVolume, int maxVolume, int currentVolume, boolean on) {
+        this.id = id;
+        this.radioName = radioName;
+        this.minStation = minStation;
+        this.maxStation = maxStation;
+        this.currentStation = currentStation;
+        this.minVolume = minVolume;
+        this.maxVolume = maxVolume;
+        this.currentVolume = currentVolume;
+        this.on = on;
+    }
 
     //Radio Management
+
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setOn(boolean on) {
+        this.on = on;
+    }
+
+    public boolean isOn() {
+        return on;
+    }
+
+    public String getRadioName() {
+        return radioName;
+    }
+
+    public void setRadioName(String radioNames) {
+        this.radioName = radioNames;
+        return;
+    }
+
+    public int getMaxStation() {
+        return maxStation;
+    }
+
+    public int getMinStation() {
+        return minStation;
+    }
+
     public void setMaxStation() {
         this.currentStation = maxStation;
         return;
@@ -81,6 +143,14 @@ public class Radio {
             currentVolume = minVolume;
         }
         return;
+    }
+
+    public int getMaxVolume() {
+        return maxVolume;
+    }
+
+    public int getMinVolume() {
+        return minVolume;
     }
 
 }
