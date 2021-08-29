@@ -44,10 +44,6 @@ public class Radio {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public void setOn(boolean on) {
         this.on = on;
     }
@@ -55,6 +51,7 @@ public class Radio {
     public boolean isOn() {
         return on;
     }
+
 
     public String getRadioName() {
         return radioName;

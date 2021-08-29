@@ -3,6 +3,7 @@ package ru.netology;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.shadow.com.univocity.parsers.common.record.Record;
 
+import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class RadioTest {
@@ -16,11 +17,16 @@ class RadioTest {
     }
 
     @Test
+    public void showBackStation() {
+        rad.getCurrentStation();
+        rad.setBackStation();
+        assertEquals(3, rad.getCurrentStation());
+    }
+
+    @Test
     public void setMinStation() {
         rad.setMinStation();
-        int expected = 0;
-        int actual = rad.getCurrentStation();
-        assertEquals(expected, actual);
+        assertEquals(0, rad.getCurrentStation());;
     }
 
     @Test
@@ -78,17 +84,18 @@ class RadioTest {
 
     @Test
     public void setBackStation() {
+        rad.setMinStation();
         rad.setBackStation();
-        int expected = 3;
+        int expected = 9;
         int actual = rad.getCurrentStation();
         assertEquals(expected, actual);
     }
 
     @Test
     public void setBackStationTwo() {
-        rad.setMaxStation();
+        rad.getCurrentStation();
         rad.setBackStation();
-        int expected = 8;
+        int expected = 3;
         int actual = rad.getCurrentStation();
         assertEquals(expected, actual);
     }
@@ -131,8 +138,9 @@ class RadioTest {
 
     @Test
     public void setDecreaseVolume() {
+        rad.setMinVolume();
         rad.setDecreaseVolume();
-        int expected = 9;
+        int expected = 0;
         int actual = rad.getCurrentVolume();
         assertEquals(expected, actual);
 
@@ -176,7 +184,6 @@ class RadioTest {
         assertEquals(true, radio.isOn());
         assertEquals(125, radio.getId());
 
-
     }
 
     @Test
@@ -193,6 +200,5 @@ class RadioTest {
         assertEquals("NotName", rad.getRadioName());
 
     }
-
 }
 
