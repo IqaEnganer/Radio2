@@ -18,6 +18,7 @@ class RadioTest {
         assertEquals(9, rad.getMaxStation());
         rad.setCurrentStation(9+1);
         assertEquals(10,rad.getCurrentStation());
+        assertEquals(100, rad.getMaxVolume());
     }
 
 }
