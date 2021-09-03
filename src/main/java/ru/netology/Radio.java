@@ -6,7 +6,7 @@ public class Radio {
     private String radioName = "NotName";
     private int id;
     private int minStation = 0;
-    private int maxStation = 9;
+    private int maxStation = numberOfRadioStation - 1;
     private int currentStation = (minStation + maxStation) / 2;
 
     private int minVolume = 0;
@@ -19,13 +19,11 @@ public class Radio {
 
     public Radio(int numberOfRadioStation) {
         this.numberOfRadioStation = numberOfRadioStation;
-        this.maxStation = numberOfRadioStation - 1;
-
     }
 
 
     //Radio Management
-    public int getNumberOfRadioStation(){
+    public int getNumberOfRadioStation() {
         return numberOfRadioStation;
     }
 
