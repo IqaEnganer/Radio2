@@ -7,13 +7,13 @@ import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class RadioTest {
-    Radio rad = new Radio("RadioRecord", true, 1);
+    Radio rad = new Radio();
 
     // Test stations
     // Switching by buttons
     @Test
     public void isOn() {
-        assertEquals(true, rad.isOn());
+        assertEquals(false, rad.isOn());
     }
 
     @Test
@@ -26,7 +26,8 @@ class RadioTest {
     @Test
     public void setMinStation() {
         rad.setMinStation();
-        assertEquals(0, rad.getCurrentStation());;
+        assertEquals(0, rad.getCurrentStation());
+        ;
     }
 
     @Test
@@ -173,31 +174,20 @@ class RadioTest {
 
     @Test
     public void shouldInitFields() {
-        Radio radio = new Radio(125, "radio", 10, 9, 4, 0, 100, 50, true);
-        assertEquals("radio", radio.getRadioName());
-        assertEquals(10, radio.getMinStation());
+        Radio radio = new Radio();
+        Radio radio1 = new Radio(15);
+        assertEquals(10, radio.getNumberOfRadioStation());
+        assertEquals("NotName", radio.getRadioName());
+        assertEquals(0, radio.getMinStation());
         assertEquals(9, radio.getMaxStation());
         assertEquals(100, radio.getMaxVolume());
         assertEquals(0, radio.getMinVolume());
         assertEquals(4, radio.getCurrentStation());
-        assertEquals(50, radio.getCurrentVolume());
-        assertEquals(true, radio.isOn());
-        assertEquals(125, radio.getId());
+        assertEquals(10, radio.getCurrentVolume());
+        assertEquals(false, radio.isOn());
+        assertEquals(0, radio.getId());
+        assertEquals(15, radio1.getNumberOfRadioStation());
 
-    }
-
-    @Test
-    public void showDefaultValues() {
-
-        Radio rad = new Radio(true, 235);
-        assertEquals(0, rad.getMinStation());
-        assertEquals(100, rad.getMaxVolume());
-        assertEquals(9, rad.getMaxStation());
-        assertEquals(235, rad.getId());
-        assertEquals(0, rad.getMinStation());
-        assertEquals(4, rad.getCurrentStation());
-        assertEquals(10, rad.getCurrentVolume());
-        assertEquals("NotName", rad.getRadioName());
 
     }
 }

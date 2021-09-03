@@ -1,7 +1,8 @@
 package ru.netology;
 
 public class Radio {
-    private boolean on = false;
+    private boolean on;
+    private int numberOfRadioStation = 10;
     private String radioName = "NotName";
     private int id;
     private int minStation = 0;
@@ -13,31 +14,20 @@ public class Radio {
     private int currentVolume = 10;
 
 
-    public Radio(boolean on, int id) {
-        this.on = on;
-        this.id = id;
+    public Radio() {
     }
 
-    public Radio(String radioName, boolean on, int id) {
-        this.radioName = radioName;
-        this.on = on;
-        this.id = id;
+    public Radio(int numberOfRadioStation) {
+        this.numberOfRadioStation = numberOfRadioStation;
+        this.maxStation = numberOfRadioStation - 1;
+
     }
 
-
-    public Radio(int id, String radioName, int minStation, int maxStation, int currentStation, int minVolume, int maxVolume, int currentVolume, boolean on) {
-        this.id = id;
-        this.radioName = radioName;
-        this.minStation = minStation;
-        this.maxStation = maxStation;
-        this.currentStation = currentStation;
-        this.minVolume = minVolume;
-        this.maxVolume = maxVolume;
-        this.currentVolume = currentVolume;
-        this.on = on;
-    }
 
     //Radio Management
+    public int getNumberOfRadioStation(){
+        return numberOfRadioStation;
+    }
 
 
     public int getId() {
