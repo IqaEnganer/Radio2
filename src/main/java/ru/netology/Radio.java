@@ -1,6 +1,7 @@
 package ru.netology;
 
 public class Radio {
+    String[] numberRadioStations = new String[10];
     private boolean on;
     private int numberOfRadioStation = 10;
     private String radioName = "NotName";
@@ -138,4 +139,8 @@ public class Radio {
         return minVolume;
     }
 
+    public void setNumberRadioStations(String[] numberRadioStations) {
+        this.numberRadioStations = numberRadioStations;
+        return;
+    }
 }

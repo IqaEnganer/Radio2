@@ -190,5 +190,21 @@ class RadioTest {
 
 
     }
+    @Test
+    public void stationCurrent(){
+        Radio radio = new Radio();
+        radio.numberRadioStations[0] = "0";
+        radio.numberRadioStations[1] = "1";
+        radio.numberRadioStations[2] = "2";
+        radio.numberRadioStations[3] = "3";
+        radio.numberRadioStations[4] = "4";
+        radio.numberRadioStations[5] = "5";
+        radio.numberRadioStations[6] = "6";
+        radio.numberRadioStations[7] = "7";
+        radio.numberRadioStations[8] = "8";
+        radio.numberRadioStations[9] = "9";
+        assertEquals(10, radio.setNumberRadioStations());
+
+    }
 }
 
