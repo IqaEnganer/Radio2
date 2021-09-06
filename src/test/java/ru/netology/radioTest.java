@@ -1,10 +1,8 @@
 package ru.netology;
 
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.shadow.com.univocity.parsers.common.record.Record;
 
-import static org.junit.jupiter.api.Assertions.assertAll;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 class RadioTest {
     Radio rad = new Radio();
@@ -18,14 +16,14 @@ class RadioTest {
 
     @Test
     public void showBackStation() {
-        rad.getCurrentStation();
+        rad.setCurrentStation(0);
         rad.setBackStation();
-        assertEquals(3, rad.getCurrentStation());
+        assertEquals(9, rad.getCurrentStation());
     }
 
     @Test
     public void setMinStation() {
-        rad.setMinStation();
+        rad.getMinStation();
         assertEquals(0, rad.getCurrentStation());
         ;
     }
@@ -40,17 +38,16 @@ class RadioTest {
 
     @Test
     public void setCurrentStation() {
-        rad.setCurrentStation(9);
-        int expected = 9;
+        rad.setCurrentStation(20);
+        int expected = 0;
         int actual = rad.getCurrentStation();
         assertEquals(expected, actual);
     }
 
     @Test
     public void setCurrentStationTwo() {
-        rad.setMaxStation();
-        rad.setCurrentStation(10);
-        int expected = 9;
+        rad.setCurrentStation(-1);
+        int expected = 0;
         int actual = rad.getCurrentStation();
         assertEquals(expected, actual);
     }
@@ -58,8 +55,8 @@ class RadioTest {
     @Test
     public void setCurrentStationThree() {
         rad.setMinStation();
-        rad.setCurrentStation(-1);
-        int expected = 0;
+        rad.setBackStation();
+        int expected = 9;
         int actual = rad.getCurrentStation();
         assertEquals(expected, actual);
     }
@@ -69,7 +66,7 @@ class RadioTest {
     @Test
     public void setNextStation() {
         rad.setNextStation();
-        int expected = 5;
+        int expected = 1;
         int actual = rad.getCurrentStation();
         assertEquals(expected, actual);
     }
@@ -85,7 +82,7 @@ class RadioTest {
 
     @Test
     public void setBackStation() {
-        rad.setMinStation();
+        rad.getMinStation();
         rad.setBackStation();
         int expected = 9;
         int actual = rad.getCurrentStation();
@@ -94,9 +91,9 @@ class RadioTest {
 
     @Test
     public void setBackStationTwo() {
-        rad.getCurrentStation();
+        rad.setCurrentStation(5);
         rad.setBackStation();
-        int expected = 3;
+        int expected = 4;
         int actual = rad.getCurrentStation();
         assertEquals(expected, actual);
     }
@@ -175,36 +172,31 @@ class RadioTest {
     @Test
     public void shouldInitFields() {
         Radio radio = new Radio();
-        Radio radio1 = new Radio(15);
-        assertEquals(10, radio.getNumberOfRadioStation());
+        radio.setCurrentStation(5);
         assertEquals("NotName", radio.getRadioName());
         assertEquals(0, radio.getMinStation());
-        assertEquals(9, radio.getMaxStation());
+        assertEquals(9, radio.getMaxStationAndQuantity());
         assertEquals(100, radio.getMaxVolume());
         assertEquals(0, radio.getMinVolume());
-        assertEquals(4, radio.getCurrentStation());
+        assertEquals(5, radio.getCurrentStation());
         assertEquals(10, radio.getCurrentVolume());
         assertEquals(false, radio.isOn());
         assertEquals(0, radio.getId());
-        assertEquals(15, radio1.getNumberOfRadioStation());
+        radio.setCurrentVolume(100);
+        assertEquals(100,radio.getCurrentVolume());
+        radio.setId(2);
+        assertEquals(2,radio.getId());
+        assertEquals(9,radio.getMaxStationAndQuantity());
 
 
     }
     @Test
-    public void stationCurrent(){
-        Radio radio = new Radio();
-        radio.numberRadioStations[0] = "0";
-        radio.numberRadioStations[1] = "1";
-        radio.numberRadioStations[2] = "2";
-        radio.numberRadioStations[3] = "3";
-        radio.numberRadioStations[4] = "4";
-        radio.numberRadioStations[5] = "5";
-        radio.numberRadioStations[6] = "6";
-        radio.numberRadioStations[7] = "7";
-        radio.numberRadioStations[8] = "8";
-        radio.numberRadioStations[9] = "9";
-        assertEquals(10, radio.setNumberRadioStations());
-
+    public void setNumberStation(){
+        Radio rad = new Radio(150);
+        assertEquals(150,rad.getMaxStationAndQuantity());
+        rad.setMinStation();
+        rad.setBackStation();
+        assertEquals(150,rad.getCurrentStation());
     }
 }
 

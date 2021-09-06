@@ -1,81 +1,30 @@
 package ru.netology;
 
+
 public class Radio {
-    String[] numberRadioStations = new String[10];
+
+
     private boolean on;
-    private int numberOfRadioStation = 10;
     private String radioName = "NotName";
     private int id;
     private int minStation = 0;
-    private int maxStation = numberOfRadioStation - 1;
-    private int currentStation = (minStation + maxStation) / 2;
+    private int maxStationAndQuantity = 9;
+    private int currentStation;
 
     private int minVolume = 0;
     private int maxVolume = 100;
     private int currentVolume = 10;
 
+    public Radio(int maxStationAndNumber) {
+        this.maxStationAndQuantity = maxStationAndNumber;
+    }
 
     public Radio() {
     }
 
-    public Radio(int numberOfRadioStation) {
-        this.numberOfRadioStation = numberOfRadioStation;
-    }
-
-
-    //Radio Management
-    public int getNumberOfRadioStation() {
-        return numberOfRadioStation;
-    }
-
-
-    public int getId() {
-        return id;
-    }
-
-    public void setOn(boolean on) {
-        this.on = on;
-    }
-
-    public boolean isOn() {
-        return on;
-    }
-
-
-    public String getRadioName() {
-        return radioName;
-    }
-
-    public void setRadioName(String radioNames) {
-        this.radioName = radioNames;
-        return;
-    }
-
-    public int getMaxStation() {
-        return maxStation;
-    }
-
-    public int getMinStation() {
-        return minStation;
-    }
-
-    public void setMaxStation() {
-        this.currentStation = maxStation;
-        return;
-    }
-
-    public void setMinStation() {
-        this.currentStation = minStation;
-        return;
-    }
-
-    public int getCurrentStation() {
-        return this.currentStation;
-    }
-
     public void setNextStation() {
         currentStation = currentStation + 1;
-        if (currentStation > maxStation) {
+        if (currentStation > maxStationAndQuantity) {
             currentStation = minStation;
         }
         return;
@@ -84,7 +33,7 @@ public class Radio {
     public void setBackStation() {
         currentStation = currentStation - 1;
         if (currentStation < minStation) {
-            currentStation = maxStation;
+            currentStation = maxStationAndQuantity;
         }
         return;
     }
@@ -93,27 +42,12 @@ public class Radio {
         if (currentStation < minStation) {
             return;
         }
-        if (currentStation > maxStation) {
+        if (currentStation > maxStationAndQuantity) {
             return;
         }
         this.currentStation = currentStation;
     }
 
-
-    // Velum level management
-    public int getCurrentVolume() {
-        return currentVolume;
-    }
-
-    public void setMaxVolume() {
-        this.currentVolume = maxVolume;
-        return;
-    }
-
-    public void setMinVolume() {
-        this.currentVolume = minVolume;
-        return;
-    }
 
     public void setIncreaseVolume() {
         currentVolume = currentVolume + 1;
@@ -131,16 +65,76 @@ public class Radio {
         return;
     }
 
-    public int getMaxVolume() {
-        return maxVolume;
+    public boolean isOn() {
+        return on;
+    }
+
+    public void setOn(boolean on) {
+        this.on = on;
+    }
+
+    public String getRadioName() {
+        return radioName;
+    }
+
+    public void setRadioName(String radioName) {
+        this.radioName = radioName;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getMinStation() {
+        return minStation;
+    }
+
+
+    public int getMaxStationAndQuantity() {
+        return maxStationAndQuantity;
+    }
+
+
+    public int getCurrentStation() {
+        return currentStation;
     }
 
     public int getMinVolume() {
         return minVolume;
     }
 
-    public void setNumberRadioStations(String[] numberRadioStations) {
-        this.numberRadioStations = numberRadioStations;
-        return;
+
+    public int getMaxVolume() {
+        return maxVolume;
     }
+
+
+    public int getCurrentVolume() {
+        return currentVolume;
+    }
+
+    public void setCurrentVolume(int currentVolume) {
+        this.currentVolume = currentVolume;
+    }
+
+    public void setMaxStation() {
+        this.currentStation = maxStationAndQuantity;
+    }
+    public void setMinStation(){
+        this.currentStation = minStation;
+    }
+    public void setMaxVolume(){
+        this.currentVolume = maxVolume;
+    }
+
+    public void setMinVolume() {
+        this.currentVolume = minVolume;
+    }
+
 }
+
+
