@@ -17,15 +17,24 @@ class RadioTest {
         rad.setCurrentStation(7);
         assertEquals(7, rad.getCurrentStation());
         assertEquals(0, rad.getMinStation());
-        assertEquals(9, rad.getMaxStation());
+        assertEquals(9, rad.getMaxStationAndQuantity());
         rad.setCurrentStation(9+1);
-        assertEquals(10,rad.getCurrentStation());
+        assertEquals(7,rad.getCurrentStation());
         assertEquals(100, rad.getMaxVolume());
         assertEquals(100, rad2.getMaxVolume());
         assertEquals(true, rad2.isOn());
         assertEquals("RadioRec", rad2.getRadioName());
         assertEquals(25, rad2.getId());
         assertEquals(10, rad2.getMinStation());
+        rad.setNextStation();
+        assertEquals(8,rad.getCurrentStation());
+        rad.setBackStation();
+        assertEquals(7,rad.getCurrentStation());
+        rad.setIncreaseVolume();
+        assertEquals(11,rad.getCurrentVolume());
+        rad.setDecreaseVolume();
+        assertEquals(10,rad.getCurrentVolume());
+
 
     }
 
