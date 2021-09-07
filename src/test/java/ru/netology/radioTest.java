@@ -195,6 +195,8 @@ class RadioTest {
         Radio rad = new Radio(20);
         assertEquals(20,rad.getNumberOfStations());
         assertEquals(19,rad.getMaxStation());
+        rad.setCurrentStation(25);
+        assertEquals(19,rad.getCurrentStation());
     }
 }
 
