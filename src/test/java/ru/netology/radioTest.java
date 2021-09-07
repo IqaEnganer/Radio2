@@ -39,7 +39,7 @@ class RadioTest {
     @Test
     public void setCurrentStation() {
         rad.setCurrentStation(20);
-        int expected = 0;
+        int expected = 9;
         int actual = rad.getCurrentStation();
         assertEquals(expected, actual);
     }
