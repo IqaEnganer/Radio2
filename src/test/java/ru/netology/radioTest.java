@@ -175,7 +175,7 @@ class RadioTest {
         radio.setCurrentStation(5);
         assertEquals("NotName", radio.getRadioName());
         assertEquals(0, radio.getMinStation());
-        assertEquals(9, radio.getMaxStationAndQuantity());
+        assertEquals(9, radio.getMaxStation());
         assertEquals(100, radio.getMaxVolume());
         assertEquals(0, radio.getMinVolume());
         assertEquals(5, radio.getCurrentStation());
@@ -186,17 +186,15 @@ class RadioTest {
         assertEquals(100,radio.getCurrentVolume());
         radio.setId(2);
         assertEquals(2,radio.getId());
-        assertEquals(9,radio.getMaxStationAndQuantity());
+        assertEquals(9,radio.getMaxStation());
 
 
     }
     @Test
     public void setNumberStation(){
-        Radio rad = new Radio(150);
-        assertEquals(150,rad.getMaxStationAndQuantity());
-        rad.setMinStation();
-        rad.setBackStation();
-        assertEquals(150,rad.getCurrentStation());
+        Radio rad = new Radio(20);
+        assertEquals(20,rad.getNumberOfStations());
+        assertEquals(19,rad.getMaxStation());
     }
 }
 

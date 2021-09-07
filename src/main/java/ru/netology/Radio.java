@@ -4,19 +4,22 @@ package ru.netology;
 public class Radio {
 
 
+    private int numberOfStations = 10;
     private boolean on;
     private String radioName = "NotName";
     private int id;
     private int minStation = 0;
-    private int maxStationAndQuantity = 9;
+    private int maxStation = numberOfStations - 1;
     private int currentStation;
 
     private int minVolume = 0;
     private int maxVolume = 100;
     private int currentVolume = 10;
 
-    public Radio(int maxStationAndNumber) {
-        this.maxStationAndQuantity = maxStationAndNumber;
+
+    public Radio(int numberOfStations) {
+        this.numberOfStations = numberOfStations;
+        this.maxStation = numberOfStations - 1;
     }
 
     public Radio() {
@@ -24,7 +27,7 @@ public class Radio {
 
     public void setNextStation() {
         currentStation = currentStation + 1;
-        if (currentStation > maxStationAndQuantity) {
+        if (currentStation > maxStation) {
             currentStation = minStation;
         }
         return;
@@ -33,7 +36,7 @@ public class Radio {
     public void setBackStation() {
         currentStation = currentStation - 1;
         if (currentStation < minStation) {
-            currentStation = maxStationAndQuantity;
+            currentStation = maxStation;
         }
         return;
     }
@@ -42,7 +45,7 @@ public class Radio {
         if (currentStation < minStation) {
             return;
         }
-        if (currentStation > maxStationAndQuantity) {
+        if (currentStation > maxStation) {
             return;
         }
         this.currentStation = currentStation;
@@ -63,6 +66,10 @@ public class Radio {
             currentVolume = minVolume;
         }
         return;
+    }
+
+    public int getNumberOfStations() {
+        return numberOfStations;
     }
 
     public boolean isOn() {
@@ -94,8 +101,8 @@ public class Radio {
     }
 
 
-    public int getMaxStationAndQuantity() {
-        return maxStationAndQuantity;
+    public int getMaxStation() {
+        return maxStation;
     }
 
 
@@ -122,12 +129,14 @@ public class Radio {
     }
 
     public void setMaxStation() {
-        this.currentStation = maxStationAndQuantity;
+        this.currentStation = maxStation;
     }
-    public void setMinStation(){
+
+    public void setMinStation() {
         this.currentStation = minStation;
     }
-    public void setMaxVolume(){
+
+    public void setMaxVolume() {
         this.currentVolume = maxVolume;
     }
 
